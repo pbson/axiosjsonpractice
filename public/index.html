@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="first_name" />
+    <label for="first_name">First name</label>
+    <br />
+    <input type="text" id="last_name" />
+    <label for="last_name">Last name</label>
+    <br />
+    <input type="text" id="address" />
+    <label for="address">Address</label>
+    <br />
+    <button id="submit">Submit</button>
+    <hr />
+    <table id="table">
+      <tr>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Address</th>
+      </tr>
+      <tr>
+        <td></td>
+      </tr>
+    </table>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <script>
+      function render(lists) {
+        console.log(lists);
+        var table = document.querySelector("table");
+        var submit = document.getElementById("submit");
+        var res = [];
+        for (element of lists) {
+          res.push("<tr>");
+          res.push("<td>" + element.first_name + "</td>");
+          res.push("<td>" + element.last_name + "</td>");
+          res.push("<td>" + element.address + "</td>");
+          res.push("</tr>");
+        }
+        console.log(res);
+        table.innerHTML = "<tr><th>First name</th><th>Last name</th><th>Address</th></tr>"+ res.join("");
+      }
+      //add
+      submit.addEventListener("click", add);
+      function add() {
+        var firstName = document.getElementById("first_name");
+        var lastName = document.getElementById("last_name");
+        var address = document.getElementById("address");
+        axios.post("http://localhost:3000/employees", {
+          first_name: firstName.value,
+          last_name: lastName.value,
+          address: address.value
+        });
+        axios.get('http://localhost:3000/employees').then(function(mess){
+          render(mess.data)
+        });
+      }
+
+      //get
+      axios.get("http://localhost:3000/employees").then(function(mess) {
+        render(mess.data);
+      });
+    </script>
+  </body>
+</html>

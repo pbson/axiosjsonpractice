@@ -1,0 +1,40 @@
+{
+  "employees": [
+    {
+      "id": 1,
+      "first_name": "Sebastian",
+      "last_name": "Nommand",
+      "address": "123 Subway, NDC"
+    },
+    {
+      "id": 2,
+      "first_name": "Julia",
+      "last_name": "Palmer",
+      "address": "Path 12, Manchess Street"
+    },
+    {
+      "id": 3,
+      "first_name": "Anne",
+      "last_name": "Cathays",
+      "address": "4th floor, Nanman Landing"
+    },
+    {
+      "first_name": "PHAM",
+      "last_name": "SON",
+      "address": "Hanoi, Vietnam",
+      "id": 4
+    },
+    {
+      "first_name": "pham",
+      "last_name": "son",
+      "address": "hanoi",
+      "id": 5
+    },
+    {
+      "first_name": "PHAM",
+      "last_name": "SON",
+      "address": "Hanoi, Vietnam",
+      "id": 6
+    }
+  ]
+}
